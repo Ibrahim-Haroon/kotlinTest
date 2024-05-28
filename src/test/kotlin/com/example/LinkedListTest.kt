@@ -36,10 +36,14 @@ class LinkedListTest {
     fun `test LinkedList peek throws exception`() {
         val linkedList = mockk<LinkedList<Int>>()
 
+        every { linkedList.peek() } throws Exception("Empty")
+
         val exception = assertFailsWith<Exception> {
             linkedList.peek()
         }
-        assertEquals("List is empty", exception.message)
+
+        assertEquals("Empty", exception.message)
+        verify { linkedList.peek() }
     }
 
     @Test
