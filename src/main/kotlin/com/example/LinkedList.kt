@@ -35,6 +35,15 @@ class LinkedList<T> {
     }
 
 
+    fun peek(): T {
+        if (head == null) {
+            throw Exception("Empty")
+        }
+
+        return head!!.`val`
+    }
+
+
     fun delete() {
         if (isEmpty()) {
             return
